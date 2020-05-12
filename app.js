@@ -31,10 +31,6 @@ const getReciprocalRunway = (runway) => {
   runway = parseInt(runway, 10);
   let degrees = runway * 10;
 
-  if (runway > 36 || runway < 0) {
-    window.alert("Your runway number is invalid");
-  }
-
   if (runway < 18 && runway <= 36 && runway > 0) {
     let reciprocal = (degrees + 180) / 10;
 
@@ -43,9 +39,7 @@ const getReciprocalRunway = (runway) => {
     } else {
       return reciprocal;
     }
-  }
-
-  if (runway > 17 && runway <= 36 && runway > 0) {
+  } else if (runway > 17 && runway <= 36 && runway > 0) {
     let reciprocal = (degrees - 180) / 10;
 
     if (reciprocal < 10) {
@@ -53,5 +47,8 @@ const getReciprocalRunway = (runway) => {
     } else {
       return reciprocal;
     }
+  } else {
+    window.alert("Your runway number is invalid");
+    // BELOW - REMOVE EVENT LISTENER FROM BUTTON SO THAT NOTHING HAPPENS
   }
 };
